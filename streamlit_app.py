@@ -17,7 +17,7 @@ if not CAN_ACCESS:
         'By continuing, you are also agreeing to the [EULA, Terms of Use and Privacy Policy](https://ratemyselfies.xyz/wp-content/uploads/2024/10/Legal.pdf).'
     )
 
-    if st.button('I AM 18 OR OVER'):
+    with st.button('I AM 18 OR OVER'):
         CAN_ACCESS = True
 else:
     st.heading("Dashboard")

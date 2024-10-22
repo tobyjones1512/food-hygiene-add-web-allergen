@@ -7,3 +7,9 @@ st.write(
 )
 
 st.warning('YOU MUST BE 18 OR OVER TO USE THIS PLATFORM.')
+
+st.caption('Neither "Rate My Selfies" nor its developer is sponsored by Coinbase. You are free to make your own informed choices.')
+
+st.write(
+    'By continuing, you are also agreeing to the (EULA, Terms of Use and Privacy Policy)[https://ratemyselfies.xyz/wp-content/uploads/2024/10/Legal.pdf].'
+)

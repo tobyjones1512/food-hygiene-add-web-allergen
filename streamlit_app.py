@@ -21,7 +21,7 @@ def Dashboard():
 def ConfirmAge():
     st.write("cheese")
 
-if st.button('I AM 18 OR OVER', on_click=ConfirmAge(), type="primary"):
+if st.button('I AM 18 OR OVER', on_click=ConfirmAge, type="primary"):
     Dashboard()
 else:
     StartScreen()

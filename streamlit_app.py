@@ -1,8 +1,15 @@
 import streamlit as st
 
-st.title("Rate My Selfies: Web App")
 
-confirmed_age = False
+def Setup():
+    if 'stage' not in st.session_state:
+        st.session_state['stage'] = 0
+
+
+Setup()
+
+
+st.title("Rate My Selfies: Web App")
 
 def StartScreen():
     st.write(
@@ -17,14 +24,13 @@ def StartScreen():
         'By continuing, you are also agreeing to the [EULA, Terms of Use and Privacy Policy](https://ratemyselfies.xyz/wp-content/uploads/2024/10/Legal.pdf).'
     )
 
+    if st.button('I AM 18 OR OVER', type="primary"):
+        st.session_state['stage'] = st.session_state['stage'] + 1
+
 def Dashboard():
     st.write("Dashboard")
 
-if not confirmed_age:
+if st.session_state['stage'] == 0:
     StartScreen()
-
-    if st.button('I AM 18 OR OVER', type="primary"):
-        confirmed_age = True
-        st.write("")
 else:
     Dashboard()

@@ -24,6 +24,7 @@ if not confirmed_age:
     StartScreen()
 
     if st.button('I AM 18 OR OVER', type="primary"):
+        st.write("")
         confirmed_age = True
 else:
     Dashboard()

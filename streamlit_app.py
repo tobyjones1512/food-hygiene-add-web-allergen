@@ -2,7 +2,7 @@ import streamlit as st
 
 st.title("Rate My Selfies: Web App")
 
-CONFIRMED_AGE = False
+confirmed_age = False
 
 def StartScreen():
     st.write(
@@ -21,9 +21,9 @@ def Dashboard():
     st.write("Dashboard")
 
 def ConfirmAge():
-    CONFIRMED_AGE = True
+    confirmed_age = True
 
-if not CONFIRMED_AGE:
+if not confirmed_age:
     StartScreen()
 
     st.button('I AM 18 OR OVER', on_click=ConfirmAge, type="primary")

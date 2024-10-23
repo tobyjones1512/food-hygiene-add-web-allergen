@@ -20,7 +20,10 @@ def StartScreen():
 def Dashboard():
     st.write("Dashboard")
 
-if not st.button('I AM 18 OR OVER', type="primary"):
+if not confirmed_age:
     StartScreen()
+
+    if st.button('I AM 18 OR OVER', type="primary"):
+        confirmed_age = True
 else:
     Dashboard()

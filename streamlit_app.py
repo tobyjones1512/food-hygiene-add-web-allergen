@@ -2,6 +2,8 @@ import streamlit as st
 
 st.title("Rate My Selfies: Web App")
 
+CONFIRMED_AGE = False
+
 def StartScreen():
     st.write(
         "Rate My Selfies uses Cryptocurrency (USDC) for transactions to reduce fees for both the developer and you, the user. Crypto also keeps payments secure, fast and private. If you do not have Cryptocurrency, we recommend [Coinbase Wallet](https://www.coinbase.com/en-gb/wallet). It is secure, utilising PayPal and card payments for transactions; has a strong support team; and is free and easy to use."
@@ -19,9 +21,11 @@ def Dashboard():
     st.write("Dashboard")
 
 def ConfirmAge():
-    st.write("cheese")
+    CONFIRMED_AGE = True
 
-if st.button('I AM 18 OR OVER', on_click=ConfirmAge, type="primary"):
-    Dashboard()
-else:
+if not CONFIRMED_AGE:
     StartScreen()
+
+    st.button('I AM 18 OR OVER', on_click=ConfirmAge, type="primary")
+else:
+    Dashboard()

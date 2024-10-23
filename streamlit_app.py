@@ -2,6 +2,8 @@ import streamlit as st
 
 
 def Setup():
+    st.set_page_config(page_title="Rate My Selfies", page_icon=None, layout="wide", initial_sidebar_state="collapsed", menu_items=None)
+
     if 'stage' not in st.session_state:
         st.session_state['stage'] = 0
 
@@ -28,7 +30,12 @@ def StartScreen():
         st.session_state['stage'] = st.session_state['stage'] + 1
 
 def Dashboard():
-    st.write("Dashboard")
+    st.header("Upload Selfie")
+
+    gender = st.radio(
+        "What is your gender?",
+        ["Male", "Female", "Trans"]
+    )
 
 if st.session_state['stage'] == 0:
     StartScreen()

@@ -17,7 +17,6 @@ if st.query_params["toAdd"] == "website":
                 print ("SSH session login successful")
                 s.sendline ('cd "New Website (July 2024)/' + st.secrets.DB_remote_dir + '"')
                 s.prompt()
-                s.sendline ('ls')
+                s.sendline ('mkdir "cheese"')
                 s.prompt()
-                st.write(s.after)
                 s.logout()

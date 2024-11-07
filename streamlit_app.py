@@ -2,4 +2,4 @@ import streamlit as st
 
 st.title("Food Hygiene Community Additions")
 
-st.write(DB_hostname)
+st.write(st.secrets.DB_hostname)

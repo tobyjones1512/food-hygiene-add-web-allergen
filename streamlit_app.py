@@ -15,8 +15,8 @@ if st.query_params["toAdd"] == "website":
                 print ("SSH session failed on login.")
             else:
                 print ("SSH session login successful")
-                s.sendline ('cd "New Website (July 2024)/' + st.secrets.DB_remote_dir + '"')
+                s.sendline ('cd "New Website (July 2024)/' + st.secrets.DB_remote_dir + '/websites"')
                 s.prompt()
-                s.sendline ('mkdir "cheese"')
+                s.sendline ('echo "' + url + '" > "' + st.query_params["id"] + '.txt"')
                 s.prompt()
                 s.logout()

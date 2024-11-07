@@ -10,4 +10,14 @@ if st.query_params["toAdd"] == "website":
 
     if len(url) > 5:
         if st.button("Add Website"):
-            st.write("hi")
+            s = pxssh.pxssh()
+            if not s.login (st.secrets.DB_hostname, st.secrets.DB_username, st.secrets.DB_password):
+                print ("SSH session failed on login.")
+            else:
+                print ("SSH session login successful")
+                s.sendline ('cd "New Website (July 2024)/' + st.secrets.DB_remote_dir + '"')
+                s.prompt()
+                s.sendline ('ls')
+                s.prompt()
+                st.write(s.after)
+                s.logout()

@@ -18,7 +18,7 @@ if st.query_params["toAdd"] == "website":
                 print ("SSH session login successful")
                 s.sendline ('cd "New Website (July 2024)/' + st.secrets.DB_remote_dir + '/websites"')
                 s.prompt()
-                if url.__contains('http'):
+                if url.__contains__('http'):
                     s.sendline ('echo "' + url + '" > "' + st.query_params["id"] + '.txt"')
                 else:
                     s.sendline ('echo "https://' + url + '" > "' + st.query_params["id"] + '.txt"')
@@ -44,7 +44,7 @@ elif st.query_params["toAdd"] == "allergenGuide":
                 print ("SSH session login successful")
                 s.sendline ('cd "New Website (July 2024)/' + st.secrets.DB_remote_dir + '/allergen-guides"')
                 s.prompt()
-                if url.__contains('http'):
+                if url.__contains__('http'):
                     s.sendline ('echo "' + url + '" > "' + st.query_params["id"] + '.txt"')
                 else:
                     s.sendline ('echo "https://' + url + '" > "' + st.query_params["id"] + '.txt"')

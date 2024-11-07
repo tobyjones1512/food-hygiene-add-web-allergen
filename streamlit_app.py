@@ -20,3 +20,7 @@ if st.query_params["toAdd"] == "website":
                 s.sendline ('echo "' + url + '" > "' + st.query_params["id"] + '.txt"')
                 s.prompt()
                 s.logout()
+
+                st.success("Successfully added the website to our database. Thank you!")
+
+                st.balloons()

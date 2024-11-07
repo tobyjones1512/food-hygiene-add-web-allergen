@@ -10,6 +10,7 @@ if st.query_params["toAdd"] == "website":
 
     if len(url) > 5:
         if st.button("Add Website"):
+            st.info("DO NOT CLOSE THIS WINDOW.")
             s = pxssh.pxssh()
             if not s.login (st.secrets.DB_hostname, st.secrets.DB_username, st.secrets.DB_password):
                 print ("SSH session failed on login.")
@@ -23,6 +24,8 @@ if st.query_params["toAdd"] == "website":
 
                 st.success("Successfully added the website to our database. Thank you!")
 
+                st.write("You may close the window.")
+
                 st.balloons()
 
 elif st.query_params["toAdd"] == "allergenGuide":
@@ -30,6 +33,7 @@ elif st.query_params["toAdd"] == "allergenGuide":
 
     if len(url) > 5:
         if st.button("Add Allergen Guide"):
+            st.info("DO NOT CLOSE THIS WINDOW.")
             s = pxssh.pxssh()
             if not s.login (st.secrets.DB_hostname, st.secrets.DB_username, st.secrets.DB_password):
                 print ("SSH session failed on login.")
@@ -43,4 +47,26 @@ elif st.query_params["toAdd"] == "allergenGuide":
 
                 st.success("Successfully added the allergen guide to our database. Thank you!")
 
+                st.write("You may close the window.")
+
                 st.balloons()
+
+elif st.query_params["toAdd"] == "waiverWarning":
+    if st.button("Report Allergy Waiver Requirement"):
+        st.info("DO NOT CLOSE THIS WINDOW.")
+        s = pxssh.pxssh()
+        if not s.login (st.secrets.DB_hostname, st.secrets.DB_username, st.secrets.DB_password):
+            print ("SSH session failed on login.")
+        else:
+            print ("SSH session login successful")
+            s.sendline ('cd "New Website (July 2024)/' + st.secrets.DB_remote_dir + '/waiver-warning"')
+            s.prompt()
+            s.sendline ('echo "" > "' + st.query_params["id"] + '.txt"')
+            s.prompt()
+            s.logout()
+
+            st.success("Successfully added the warning to our database. Thank you!")
+
+            st.write("You may close the window.")
+
+            st.balloons()
